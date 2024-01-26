@@ -1,4 +1,5 @@
 #!/usr/bin/python3
 str = "Holberton School"
-result = "".join([str] * 3) + str[:9]
-print(result)
+fig = 3
+print(fig * str)
+print(str[:9])
