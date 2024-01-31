@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def print_list_integer(my_list=[]):
-    for list in my_list:
-        if list < 0:
+    for i in my_list:
+        if i < 0:
             return
         else:
-            print("{:d} ".format(list))
+            print("{:d}".format(i))
