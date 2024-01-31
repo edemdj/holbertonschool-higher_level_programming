@@ -4,4 +4,4 @@ def print_list_integer(my_list=[]):
         if list < 0:
             return
         else:
-            print("{} ".format(list))
+            print("{:d} ".format(list))
