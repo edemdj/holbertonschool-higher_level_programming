@@ -3,7 +3,7 @@
 class Square:
     """class Square that defines a square"""
     def __init__(self, size=0):
-        """The __init__ method gets called after memory for the object is allocated"""
+        """instantiation"""
         if type(size) != int:
             raise TypeError("size must be an integer")
         else:
