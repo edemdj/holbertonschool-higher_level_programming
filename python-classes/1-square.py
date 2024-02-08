@@ -5,7 +5,8 @@
 class Square:
     """class Square that defines a square"""
     def __init__(self, size):
-        self._square__size = size
+        """The __init__ method gets called after memory for the object is allocated:"""
+        self.__size = size
 
 
 S = Square('')
