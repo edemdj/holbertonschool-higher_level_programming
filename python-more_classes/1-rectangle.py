@@ -2,8 +2,8 @@
 """ class Rectangle that defines a rectangle by: (based on 0-rectangle.py)"""
 class Rectangle:
     def __init__(self, width=0, height=0):
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
@@ -28,3 +28,6 @@ class Rectangle:
         elif value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def __repr__(self):
+        return "{'_Rectangle__height': " + str(self.__height) + ", '_Rectangle__width': " + str(self.__width) + "}"
