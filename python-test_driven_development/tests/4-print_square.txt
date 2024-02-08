@@ -1,0 +1,16 @@
+Write a function that prints a square with the character #.
+
+Prototype: def print_square(size):
+size is the size length of the square
+size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+if size is less than 0, raise a ValueError exception with the message size must be >= 0
+if size is a float and is less than 0, raise a TypeError exception with the message size must be an integer
+You are not allowed to import any module
+
+>>> print_square = __import__("4-print_square").print_square
+
+
+Test with negative int
+    >>> print_square(-6)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
