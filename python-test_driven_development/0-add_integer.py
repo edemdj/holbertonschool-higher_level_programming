@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+"""function that adds 2 integers."""
 def add_integer(a, b=98):
-    """function that adds 2 integers. """
+    """ adds 2 integers or float"""
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):
