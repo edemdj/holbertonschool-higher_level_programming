@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ class Rectangle that defines a rectangle by: (based on 2-rectangle.py)"""
+
+
 class Rectangle:
     """ defines an empty class rectangle """
     def __init__(self, width=0, height=0):
@@ -47,10 +49,11 @@ class Rectangle:
 
     def __str__(self):
         """ prints representation of rectangle with # """
-        if self.width == 0 or self.height == 0:
-            return ""
-        return ("#" * self.width + "\n") * self.height
-
-    def __repr__(self):
-        """ prints representation of rectangle with # """
-        return "Rectangle({}, {})".format(self.width, self.height)
+        string = ""
+        if self.__height == 0 or self.__width == 0:
+            return string
+        for i in range(self.__height):
+            string += ("#" * self.__width)
+            if i < self.__height - 1:
+                string += '\n'
+        return string
