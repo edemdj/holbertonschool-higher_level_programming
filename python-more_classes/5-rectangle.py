@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ class Rectangle that defines a rectangle by: (based on 4-rectangle.py)"""
+
+
 class Rectangle:
     """ defines an empty class rectangle """
 
