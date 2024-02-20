@@ -7,7 +7,7 @@ class Rectangle(Base):
 
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """instanciation"""
+        """constructor"""
         super().__init__(id)
         self.width = width
         self.height = height
@@ -16,10 +16,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """Returns the value of _my_attribute"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """define width"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value <= 0:
@@ -29,10 +31,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Returns the value of _my_attribute"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """define height"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         elif value <= 0:
@@ -42,10 +46,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """Returns the value of _my_attribute"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """define x"""
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -55,13 +61,19 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Returns the value of _my_attribute"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """define y"""
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise TypeError("y must be >= 0")
         else:
             self.__y = value
+        
+    def area(self):
+        """Calcul de l'aire du rectangle"""
+        return self.width * self.height
