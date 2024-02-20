@@ -7,6 +7,7 @@ class Rectangle(Base):
 
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """instanciation"""
         super().__init__(id)
         self.width = width
         self.height = height
@@ -47,6 +48,8 @@ class Rectangle(Base):
     def x(self, value):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
+        if value < 0:
+            raise TypeError("x must be >= 0")
         else:
             self.__x = value
 
@@ -58,5 +61,7 @@ class Rectangle(Base):
     def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
+        if value < 0:
+            raise TypeError("y must be >= 0")
         else:
             self.__y = value
