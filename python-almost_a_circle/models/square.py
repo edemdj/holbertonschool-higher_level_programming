@@ -21,6 +21,16 @@ class Square(Rectangle):
         """Setter for the size"""
         self.width = value
         self.height = value
+    
+    def update(self, *args, **kwargs):
+        """Update attributes with provided arguments"""
+        if args:
+            attrs = ['id', 'size', 'x', 'y']
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         """Return a string representation of the square"""
