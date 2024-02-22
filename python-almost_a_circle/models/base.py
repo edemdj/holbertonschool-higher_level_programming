@@ -15,7 +15,7 @@ class Base:
             self.id = id
         else:
             Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+            self.id = self.__nb_objects
     
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -39,3 +39,17 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """Create an instance with all attributes set from the dictionary"""
+        if cls.__name__ == 'Rectangle':
+            dummy_instance = cls(1, 1)  # Create a dummy Rectangle instance
+        elif cls.__name__ == 'Square':
+            dummy_instance = cls(1)      # Create a dummy Square instance
+        else:
+            raise ValueError("Unsupported class type")
+        
+        dummy_instance.update(**dictionary)  # Update attributes from the dictionary
+        return dummy_instance
+    
