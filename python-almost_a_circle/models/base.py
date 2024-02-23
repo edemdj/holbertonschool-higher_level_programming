@@ -60,10 +60,10 @@ class Base:
         """Load instances from a JSON file"""
         filename = f"{cls.__name__}.json"
         if not os.path.exists(filename):
-            return []  # File doesn't exist, return an empty list
+            return []
         
         with open(filename, 'r') as file:
             json_string = file.read()
-            dict_list = cls.from_json_string(json_string)  # Convert JSON string to list of dictionaries
-            instances = [cls.create(**obj_dict) for obj_dict in dict_list]  # Create instances from dictionaries
+            dict_list = cls.from_json_string(json_string)
+            instances = [cls.create(**obj_dict) for obj_dict in dict_list]
             return instances
