@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Module"""
 
+
 from models.rectangle import Rectangle
+
 
 class Square(Rectangle):
     """Define a square"""
@@ -9,7 +11,6 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """Constructor"""
         super().__init__(size, size, x, y, id)
-
 
     @property
     def size(self):
@@ -21,7 +22,7 @@ class Square(Rectangle):
         """Setter for the size"""
         self.width = value
         self.height = value
-    
+
     def update(self, *args, **kwargs):
         """Update attributes with provided arguments"""
         if args:
