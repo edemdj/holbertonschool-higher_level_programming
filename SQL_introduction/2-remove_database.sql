@@ -1,2 +1,3 @@
-#script that deletes the database hbtn_0c_0
-DROP DATABASE IF EXISTS hbtn_0c_0;
+#!/usr/bin/env bash
+-- script that deletes the database hbtn_0c_0
+DROP DATABASE IF EXISTS hbtn_0d_tvshows;
