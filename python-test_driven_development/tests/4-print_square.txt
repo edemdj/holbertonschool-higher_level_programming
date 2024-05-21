@@ -1,0 +1,44 @@
+import unittest
+from io import StringIO
+import sys
+
+def print_square(size):
+    if not isinstance(size, int):
+        raise TypeError("size must be an integer")
+    if size < 0:
+        raise ValueError("size must be >= 0")
+    
+    for i in range(size):
+        print("#" * size)
+
+class TestPrintSquare(unittest.TestCase):
+    def test_print_square_4(self):
+        # Redirect stdout to capture print statements
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        print_square(4)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue().strip(), "####\n####\n####\n####")
+
+    def test_print_square_0(self):
+        # Redirect stdout to capture print statements
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        print_square(0)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue().strip(), "")
+
+    def test_print_square_negative(self):
+        with self.assertRaises(ValueError):
+            print_square(-1)
+
+    def test_print_square_non_integer(self):
+        with self.assertRaises(TypeError):
+            print_square(4.5)
+        with self.assertRaises(TypeError):
+            print_square("4")
+        with self.assertRaises(TypeError):
+            print_square([4])
+
+if __name__ == "__main__":
+    unittest.main()
