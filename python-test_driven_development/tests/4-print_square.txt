@@ -1,44 +1,26 @@
-import unittest
-from io import StringIO
-import sys
+Write a function that prints a square with the character #.
 
-def print_square(size):
-    if not isinstance(size, int):
-        raise TypeError("size must be an integer")
-    if size < 0:
-        raise ValueError("size must be >= 0")
-    
-    for i in range(size):
-        print("#" * size)
+Prototype: def print_square(size):
+size is the size length of the square
+size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+if size is less than 0, raise a ValueError exception with the message size must be >= 0
+if size is a float and is less than 0, raise a TypeError exception with the message size must be an integer
+You are not allowed to import any module
 
-class TestPrintSquare(unittest.TestCase):
-    def test_print_square_4(self):
-        # Redirect stdout to capture print statements
-        captured_output = StringIO()
-        sys.stdout = captured_output
-        print_square(4)
-        sys.stdout = sys.__stdout__
-        self.assertEqual(captured_output.getvalue().strip(), "####\n####\n####\n####")
+>>> print_square = __import__("4-print_square").print_square
 
-    def test_print_square_0(self):
-        # Redirect stdout to capture print statements
-        captured_output = StringIO()
-        sys.stdout = captured_output
-        print_square(0)
-        sys.stdout = sys.__stdout__
-        self.assertEqual(captured_output.getvalue().strip(), "")
+Numbers
+-------
+size is 4
+>>> print_square(4)
+####
+####
+####
+####
 
-    def test_print_square_negative(self):
-        with self.assertRaises(ValueError):
-            print_square(-1)
+size is 0
+>>> print_square(0)
 
-    def test_print_square_non_integer(self):
-        with self.assertRaises(TypeError):
-            print_square(4.5)
-        with self.assertRaises(TypeError):
-            print_square("4")
-        with self.assertRaises(TypeError):
-            print_square([4])
-
-if __name__ == "__main__":
-    unittest.main()
+size is -1
+>>> print_square(-1)
+Traceback (most recent call last):
