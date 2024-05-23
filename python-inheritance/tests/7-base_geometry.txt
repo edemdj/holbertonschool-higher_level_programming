@@ -1,22 +1,30 @@
->>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> BaseGeometry = __import__('base_geometry').BaseGeometry
 
+>>> bg = BaseGeometry()
 
+# Test de la méthode area
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
 
-    >>> bg = BaseGeometry()
-    >>> type(bg)
-    <class '7-base_geometry.BaseGeometry'>
+# Test de la méthode integer_validator avec un entier positif
+>>> bg.integer_validator("my_int", 10)
 
-This class should define 2 functions
+# Test de la méthode integer_validator avec une valeur non entière
+>>> bg.integer_validator("my_int", "10")
+Traceback (most recent call last):
+    ...
+TypeError: my_int must be an integer
 
-``area``
-    >>> 'area' in dir(BaseGeometry)
-    True
+# Test de la méthode integer_validator avec une valeur négative
+>>> bg.integer_validator("my_int", -5)
+Traceback (most recent call last):
+    ...
+ValueError: my_int must be greater than 0
 
-``integer_validator``
-    >>> 'integer_validator' in dir(BaseGeometry)
-    True
-
-
-     >>> bg.integer_validator()
-    Traceback (most recent call last):
-    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+# Test de la méthode integer_validator avec une valeur zéro
+>>> bg.integer_validator("my_int", 0)
+Traceback (most recent call last):
+    ...
+ValueError: my_int must be greater than 0
