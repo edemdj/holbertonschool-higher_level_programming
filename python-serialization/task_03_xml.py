@@ -33,7 +33,7 @@ def deserialize_from_xml(filename):
             else:
                 return element.text
 
-        return {root.tag: parse_element(root)}
+        return {child.tag: parse_element(child) for child in root}
     except (ET.ParseError, FileNotFoundError) as e:
         print(f"An error occurred: {e}")
         return None
