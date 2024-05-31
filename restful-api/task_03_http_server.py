@@ -28,27 +28,27 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         # Define the response for the /status endpoint
         elif self.path == '/status':
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
             status = {"status": "OK"}
-            self.wfile.write(json.dumps(status).encode('utf-8'))
+            self.wfile.write(b"OK")
 
         # define the response for the /info endpoint
         elif self.path == '/info':
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
             info = {"version": "1.0", "description":
                     "A simple API built with http.server"}
-            self.wfile.write(json.dumps(info).encode())
+            self.wfile.write(b"version: 1.0, description : A simple API built with http.serveur")
 
         # Handle undefined endpoints
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
             error_message = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error_message).encode('utf-8'))
+            self.wfile.write(b"Endpoint not found")
 
 
 def run(server_class=HTTPServer,
