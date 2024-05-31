@@ -30,7 +30,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            status = {"status": "OK"}
             self.wfile.write(b"OK")
 
         # define the response for the /info endpoint
@@ -38,16 +37,12 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            info = {"version": "1.0", "description":
-                    "A simple API built with http.server"}
-            self.wfile.write(b"version: 1.0, description : A simple API built with http.serveur")
-
+            self.wfile.write(b'{"version": "1.0", "description": "A simple API built with http.server"}')
         # Handle undefined endpoints
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            error_message = {"error": "Endpoint not found"}
             self.wfile.write(b"Endpoint not found")
 
 
