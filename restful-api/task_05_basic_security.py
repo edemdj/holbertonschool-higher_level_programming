@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""docstring"""
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import JWTManager, get_jwt_identity
