@@ -28,4 +28,7 @@ if __name__ == "__main__":
         from model_state import Base, State
         username = sys.argv[1]
         password = sys.argv[2]
-        Base
+        database = sys.argv[3]
+
+    delete_states_with_letter_a(username, password, database)
+
